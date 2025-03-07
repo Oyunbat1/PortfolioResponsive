@@ -20,7 +20,7 @@ function Header() {
   return (
     <div
       className="bg-black flex flex-col items-center justify-center sm:bg-blue-600 
-      sm:flex-row sm:justify-around
+      sm:flex-row sm:justify-around sm:w-full
       md:bg-green-600 lg:bg-yellow-600 text-white p-4"
     >
       {isMobile && (
