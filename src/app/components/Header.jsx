@@ -19,9 +19,9 @@ function Header() {
   const images = ["/facebook.png", "/instagram.png", "/github-logo.png"];
   return (
     <div
-      className="bg-black flex flex-col items-center justify-center sm:bg-blue-600 
+      className="bg-black flex fixed top-0 left-0 right-0 flex-col w-full items-center justify-center z-10  
       sm:flex-row sm:justify-around sm:w-full
-      md:bg-green-600 lg:bg-yellow-600 text-white p-4"
+     text-white p-4"
     >
       {isMobile && (
         <motion.h1
@@ -45,15 +45,16 @@ function Header() {
       )}
 
       <nav className="pt-[4px]">
-        <ul className="flex flex-col gap-2 w-[400px] text-center text-[12px] sm:flex-row sm:w-auto sm:gap-4">
+        <ul className="flex flex-col items-center gap-2 w-[400px] text-center text-[12px] sm:flex-row sm:w-auto sm:gap-4">
           {isMobile &&
             navItems.map((item, index) => (
               <motion.li
                 key={index}
-                className="border-b w-full py-[10px]  sm:border-none sm:w-auto md:px-[10px] lg:px-[30px] lg:text-[18px]"
+                className="border-b w-[250px] py-[10px]  sm:border-none sm:w-auto md:px-[10px] lg:px-[30px] lg:text-[18px]"
                 initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ backgroundColor: "#ffffff", color: "#000000" }}
               >
                 <a href="#">{item}</a>
               </motion.li>
@@ -66,11 +67,6 @@ function Header() {
                 initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileTap={
-                  isMobile
-                    ? { backgroundColor: "#ffffff", color: "#000000" }
-                    : {}
-                }
               >
                 <a href="#">{item}</a>
               </motion.li>
@@ -78,7 +74,7 @@ function Header() {
         </ul>
       </nav>
 
-      <div className="hidden sm:flex sm:block sm:gap-4">
+      <div className="hidden sm:flex  sm:gap-4">
         {!isMobile &&
           images.map((image, index) => (
             <motion.div
